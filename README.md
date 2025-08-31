@@ -2,7 +2,8 @@
 
 To view the problem, use `npm i && npm run build` to build the app and notice
 that `index.html` is not included in the list of pre-cached assets in
-`build/client/sw.js`.
+`build/client/sw.js`. (You'll want to prettify `sw.js` to view the list of
+pre-cached files which are at the end of the file)
 
 This is because `index.html` is created _after_ the PWA plugin is run, as evidenced by the build logs:
 
@@ -30,7 +31,7 @@ SPA Mode: Generated build/client/index.html
 Removing the server build in /Users/jasonthorpe/temp/spa-mode-pwa/build/server due to ssr:false
 ```
 
-## Thing's I've tried`
+## Thing's I've tried
 
 - Adding the Babel plugin explicitly as suggested by Alem and Pawel in [this issue](https://github.com/remix-run/react-router/issues/12352)
 
