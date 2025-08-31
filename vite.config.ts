@@ -5,6 +5,20 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import {VitePWA} from "vite-plugin-pwa";
 import type {VitePWAOptions} from "vite-plugin-pwa";
 
+/* UNCOMMENT TO USE THE BABEL PLUGIN
+
+import babel from "vite-plugin-babel";
+
+const babelConfig = {
+  plugins: [
+    ["babel-plugin-react-compiler", {}],
+    ["@babel/plugin-syntax-jsx", {}],
+  ],
+  presets: ["@babel/preset-typescript"],
+};
+
+*/
+
 const pwaOptions: Partial<VitePWAOptions> = {
   srcDir: "app",
   filename: "sw.ts",
@@ -19,6 +33,13 @@ export default defineConfig({
     tailwindcss(),
     reactRouter(),
     tsconfigPaths(),
-    VitePWA({registerType: "autoUpdate"}),
+    /* UNCOMMENT TO USE THE BABEL PLUGIN
+    babel({
+      babelConfig,
+      filter: /\.[jt]sx?$/u,
+      loader: "jsx",
+    }),
+    */
+    VitePWA(pwaOptions),
   ],
 });
