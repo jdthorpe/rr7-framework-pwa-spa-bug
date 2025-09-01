@@ -44,6 +44,11 @@ Removing the server build in /Users/jasonthorpe/temp/spa-mode-pwa/build/server d
   built, which throws errors that are not fixable because of the aforementioned
   dependencies -- and this causes the build to fail.
 
+- [This suggestion](https://github.com/vite-pwa/vite-plugin-pwa/issues/809#issuecomment-2737133297)
+  to include the `PWAManifest` and/or `PWAAssets` components from `@vite-pwa/remix` manually
+  will cause the manifest link to be included in the rendered `<head>` component
+  of `index.html`, but `index.html` is still not included in the pre-cached assets.
+
 ## Created with
 
 ```sh
